@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+	<title th:text="#{auth.title}">Title</title>
+	<th:block th:replace="~{fragments/sidebar.html :: auth-head}"></th:block>
+</head>
+<body>
+<form id="loginForm" th:action="@{/authenticate}" method="POST" novalidate="">
+	<h1>Patient Login</h1>
+	<label for="iin" th:text="#{auth.iin.label}">ИИН:</label>
+	<input type="text" id="iin" name="iin" th:placeholder="#{auth.iin.placeholder}" required><br><br>
+
+	<label for="password" th:text="#{auth.password.label}">Пароль:</label>
+	<input type="password" id="password" name="password" th:placeholder="#{auth.password.placeholder}" required><br><br>
+
+	<input class="submit" type="submit" th:value="#{auth.link}">
+	<div class="question">
+		<p th:text="#{auth.question}">Все еще нет аккаунта?</p>
+		<a th:href="@{/register}" th:text="#{registration.link}">Зарегистрироваться</a>
+	</div>
+</form>
+</body>
+</html>

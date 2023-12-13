@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--=============== REMIXICONS ===============-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css" crossorigin="">
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+  <!--=============== CSS ===============-->
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<head th:fragment="auth-head">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{/verify.css}">
+</head>
+<body>
+<!-- Sidebar bg -->
+<img th:fragment="sidebar-bg" th:src="@{/images/background.jpeg}" alt="sidebar img" class="bg-image">
+
+<!--=============== HEADER ===============-->
+<header class="header" th:fragment="header">
+  <div class="header__container container">
+    <div class="header__toggle" id="header-toggle">
+      <i class="ri-menu-line"></i>
+    </div>
+
+    <a href="#" class="header__logo">
+      <img src="" alt="">
+    </a>
+  </div>
+</header>
+
+<!--=============== SIDEBAR ===============-->
+<div class="sidebar" id="sidebar" th:fragment="sidebar">
+  <nav class="sidebar__container">
+    <div class="sidebar__logo">
+      <img th:src="@{/images/medical-logo-svgrepo-com.svg}" alt="" class="sidebar__logo-img">
+      <img src="" alt="" class="sidebar__logo-text">
+    </div>
+    <div class="sidebar__content">
+      <div class="sidebar__list">
+        <a th:href="@{/med/}" class="sidebar__link active-link">
+          <i class="ri-home-5-line"></i>
+          <span class="sidebar__link-name" th:text="#{sidebar.home}">Home</span>
+          <span class="sidebar__link-floating" th:text="#{sidebar.home}">Home</span>
+        </a>
+        <a th:href="@{/med/appointment}" class="sidebar__link">
+          <i class="ri-add-box-line"></i>
+          <span class="sidebar__link-name" th:text="#{sidebar.appointment}">appointment</span>
+          <span class="sidebar__link-floating" th:text="#{sidebar.appointment.floating}">appointment</span>
+        </a>
+      </div>
+
+      <div class="sidebar__list">
+        <a th:href="@{/med/history}" class="sidebar__link">
+          <i class="ri-history-line"></i>
+          <span class="sidebar__link-name" th:text="#{sidebar.history}">History</span>
+          <span class="sidebar__link-floating" th:text="#{sidebar.history.floating}">History</span>
+        </a>
+      </div>
+
+      <h3 class="sidebar__title">
+        <span th:text="#{sidebar.general}">General</span>
+      </h3>
+
+      <div class="sidebar__list">
+        <a th:href="@{/med/about}" class="sidebar__link">
+          <i class="ri-information-line"></i>
+          <span class="sidebar__link-name" th:text="#{sidebar.about}">About</span>
+          <span class="sidebar__link-floating" th:text="#{sidebar.about}">About</span>
+        </a>
+
+        <a th:href="@{/med/language}" class="sidebar__link">
+          <i class="ri-earth-line"></i>
+          <span class="sidebar__link-name" th:text="#{sidebar.lang}">Languages</span>
+          <span class="sidebar__link-floating" th:text="#{sidebar.lang}">Languages</span>
+        </a>
+
+        <a th:href="@{/med/settings}" class="sidebar__link">
+          <i class="ri-settings-3-line"></i>
+          <span class="sidebar__link-name" th:text="#{sidebar.settings}">Settings</span>
+          <span class="sidebar__link-floating" th:text="#{sidebar.settings}">Settings</span>
+        </a>
+
+        <a th:href="@{/logout}" class="sidebar__link">
+          <i class="ri-logout-box-r-line"></i>
+          <span class="sidebar__link-name" th:text="#{sidebar.logout}">Logout</span>
+          <span class="sidebar__link-floating" th:text="#{sidebar.logout}">Logout</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="sidebar__account">
+      <img th:src="@{/icons/avatar.png}" alt="sidebar image" class="sidebar__perfil">
+
+      <div class="sidebar__names">
+        <h3 class="sidebar__name" th:text="${fullName}">fullName</h3>
+        <span class="sidebar__email" th:text="${email}">example@email.com</span>
+      </div>
+
+      <i class="ri-arrow-right-s-line"></i>
+    </div>
+  </nav>
+</div>
+<script th:fragment="js">
+  /*=============== SHOW SIDEBAR ===============*/
+  const showSidebar = (toggleId, sidebarId, mainId) => {
+    const toggle = document.getElementById(toggleId),
+            sidebar = document.getElementById(sidebarId),
+            main = document.getElementById(mainId)
+
+    if (toggle && sidebar && main) {
+      toggle.addEventListener('click', () => {
+        /* Show sidebar */
+        sidebar.classList.toggle('show-sidebar')
+        /* Add padding main */
+        main.classList.toggle('main-pd')
+      })
+    }
+  }
+  showSidebar('header-toggle', 'sidebar', 'main')
+
+  /*=============== LINK ACTIVE ===============*/
+  const sidebarLink = document.querySelectorAll('.sidebar__link')
+
+  function linkColor() {
+    sidebarLink.forEach(l => l.classList.remove('active-link'))
+    this.classList.add('active-link')
+  }
+
+  sidebarLink.forEach(l => l.addEventListener('click', linkColor))
+</script>
+</body>
+</html>

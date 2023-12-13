@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title th:text="#{registration.title}">Title</title>
+	<th:block th:replace="~{fragments/sidebar.html :: auth-head}"></th:block>
+</head>
+<!--<body class="my-login-page">-->
+<!--					<div class="card fat">-->
+<!--						<div class="card-body">-->
+<!--							<h4 class="card-title">Doctor Registeration</h4>-->
+<!--							<form th:action="@{/registereddoc}" method="POST" class="my-login-validation" novalidate="">-->
+
+<!--								<div class="form-group">-->
+<!--									<label for="email">E-Mail Address</label>-->
+<!--									<input id="email" type="email" class="form-control" name="email" required>-->
+<!--									<div class="invalid-feedback">-->
+<!--										Your email is invalid-->
+<!--									</div>-->
+<!--								</div>-->
+
+<!--								<div class="form-group">-->
+<!--									<label for="password">Password</label>-->
+<!--									<input id="password" type="password" class="form-control" name="password" required data-eye>-->
+<!--									<div class="invalid-feedback">-->
+<!--										Password is required-->
+<!--									</div>-->
+<!--								</div>-->
+
+<!--								<div class="form-group">-->
+<!--									<label for="name">Name</label>-->
+<!--									<input id="name" type="text" class="form-control" name="name" required>-->
+<!--									<div class="invalid-feedback">-->
+<!--										Your name is invalid-->
+<!--									</div>-->
+<!--								</div>-->
+
+<!--								<div class="form-group">-->
+<!--									<label for="specialization">Specialization</label>-->
+<!--									<input id="specialization" type="text" class="form-control" name="specialization" required>-->
+<!--									<div class="invalid-feedback">-->
+<!--										Your specialization is invalid-->
+<!--									</div>-->
+<!--								</div>-->
+
+<!--								<div class="form-group">-->
+<!--									<label for="degree">Degree</label>-->
+<!--									<input id="degree" type="text" class="form-control" name="degree" required>-->
+<!--									<div class="invalid-feedback">-->
+<!--										Your degree is invalid-->
+<!--									</div>-->
+<!--								</div>-->
+
+<!--								<div class="form-group">-->
+<!--									<label for="state">State</label>-->
+<!--									<input id="state" type="text" class="form-control" name="state" required>-->
+<!--									<div class="invalid-feedback">-->
+<!--										Your state is invalid-->
+<!--									</div>-->
+<!--								</div>-->
+
+<!--								<div class="form-group">-->
+<!--									<label for="city">City</label>-->
+<!--									<input id="city" type="text" class="form-control" name="city" required>-->
+<!--									<div class="invalid-feedback">-->
+<!--										Your city is invalid-->
+<!--									</div>-->
+<!--								</div>-->
+
+
+<!--								<div class="form-group m-0">-->
+<!--									<button type="submit" class="btn btn-primary btn-block">-->
+<!--										Register-->
+<!--									</button>-->
+<!--								</div>-->
+<!--								<div class="mt-4 text-center">-->
+<!--									Already have an account? <a th:href="@{/doclog}">Login</a>-->
+<!--								</div>-->
+<!--							</form>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--					<div class="footer">-->
+<!--						OOAD MiniProject - Hospital Management System-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</section>-->
+<body>
+<form id="registerForm" th:action="@{/registereddoc}" method="POST" novalidate="">
+	<label for="email" th:text="#{auth.email.label}">Email:</label>
+	<input type="email" id="email" name="email" th:placeholder="${#messages.msg('auth.email.placeholder')}" required><br><br>
+
+	<label for="password" th:text="#{auth.password.label}">Password:</label>
+	<input type="password" id="password" name="password" th:placeholder="${#messages.msg('auth.password.placeholder')}" required><br><br>
+
+	<label for="name" th:text="#{auth.fullname.label}">Name:</label>
+	<input type="text" id="name" name="name" th:placeholder="${#messages.msg('auth.fullname.placeholder')}" required><br><br>
+
+	<label for="specialization" th:text="#{auth.specialization.label}">Specialization:</label>
+	<input type="text" id="specialization" name="specialization" th:placeholder="#{auth.specialization.placeholder}" required><br><br>
+
+	<label for="degree" th:text="#{auth.degree.label}">Degree:</label>
+	<input type="text" id="degree" name="degree" th:placeholder="${#messages.msg('auth.degree.placeholder')}" required><br><br>
+
+	<label for="state" th:text="#{auth.state.label}">State:</label>
+	<input type="text" id="state" name="state" th:placeholder="${#messages.msg('auth.state.placeholder')}" required><br><br>
+
+	<label for="city" th:text="#{auth.city.label}">City:</label>
+	<input type="text" id="city" name="city" th:placeholder="${#messages.msg('auth.city.placeholder')}" required><br><br>
+
+	<input class="submit" type="submit" th:value="#{auth.register.submit}">
+
+	<div class="question">
+		<p th:text="#{auth.login.question}">Already have an account? </p>
+		<a href="/auth" th:text="#{auth.link}">Login</a>
+	</div>
+
+</form>
+</body>
+</html>
