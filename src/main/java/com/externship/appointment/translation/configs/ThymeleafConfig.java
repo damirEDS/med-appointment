@@ -1,4 +1,4 @@
-package com.externship.appointment.configs;
+package com.externship.appointment.translation.configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
