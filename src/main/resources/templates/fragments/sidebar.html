@@ -9,7 +9,7 @@
   <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 
   <!--=============== CSS ===============-->
-  <link rel="stylesheet" th:href="@{/css/styles.css}">
+  <link rel="stylesheet" th:href="@{/styles.css}">
 </head>
 <head th:fragment="auth-head">
   <meta charset="UTF-8">
@@ -42,50 +42,39 @@
     </div>
     <div class="sidebar__content">
       <div class="sidebar__list">
-        <a th:href="@{/med/}" class="sidebar__link active-link">
+        <a th:href="@{/home}" class="sidebar__link active-link">
           <i class="ri-home-5-line"></i>
           <span class="sidebar__link-name" th:text="#{sidebar.home}">Home</span>
           <span class="sidebar__link-floating" th:text="#{sidebar.home}">Home</span>
         </a>
-        <a th:href="@{/med/appointment}" class="sidebar__link">
+        <a th:href="@{/appointment}" class="sidebar__link">
           <i class="ri-add-box-line"></i>
           <span class="sidebar__link-name" th:text="#{sidebar.appointment}">appointment</span>
           <span class="sidebar__link-floating" th:text="#{sidebar.appointment.floating}">appointment</span>
         </a>
       </div>
-
       <div class="sidebar__list">
-        <a th:href="@{/med/history}" class="sidebar__link">
+        <a th:href="@{/history}" class="sidebar__link">
           <i class="ri-history-line"></i>
           <span class="sidebar__link-name" th:text="#{sidebar.history}">History</span>
           <span class="sidebar__link-floating" th:text="#{sidebar.history.floating}">History</span>
         </a>
       </div>
-
       <h3 class="sidebar__title">
         <span th:text="#{sidebar.general}">General</span>
       </h3>
-
       <div class="sidebar__list">
-        <a th:href="@{/med/about}" class="sidebar__link">
+        <a th:href="@{/about}" class="sidebar__link">
           <i class="ri-information-line"></i>
           <span class="sidebar__link-name" th:text="#{sidebar.about}">About</span>
           <span class="sidebar__link-floating" th:text="#{sidebar.about}">About</span>
         </a>
-
-        <a th:href="@{/med/language}" class="sidebar__link">
+        <a th:href="@{/language}" class="sidebar__link">
           <i class="ri-earth-line"></i>
           <span class="sidebar__link-name" th:text="#{sidebar.lang}">Languages</span>
           <span class="sidebar__link-floating" th:text="#{sidebar.lang}">Languages</span>
         </a>
-
-        <a th:href="@{/med/settings}" class="sidebar__link">
-          <i class="ri-settings-3-line"></i>
-          <span class="sidebar__link-name" th:text="#{sidebar.settings}">Settings</span>
-          <span class="sidebar__link-floating" th:text="#{sidebar.settings}">Settings</span>
-        </a>
-
-        <a th:href="@{/logout}" class="sidebar__link">
+        <a th:href="@{/}" class="sidebar__link">
           <i class="ri-logout-box-r-line"></i>
           <span class="sidebar__link-name" th:text="#{sidebar.logout}">Logout</span>
           <span class="sidebar__link-floating" th:text="#{sidebar.logout}">Logout</span>

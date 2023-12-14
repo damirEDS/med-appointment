@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--=============== REMIXICONS ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css" crossorigin="">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" th:href="@{/styles.css}">
+<body>
+<!-- Sidebar bg -->
+<img th:insert="~{fragments/sidebar.html :: sidebar-bg}">
+
+<!--=============== HEADER ===============-->
+<header th:insert="~{fragments/sidebar.html :: header}"></header>
+
+<!--=============== SIDEBAR ===============-->
+<div th:insert="~{fragments/sidebar.html :: sidebar}"></div>
+
+<!--=============== MAIN ===============-->
+<main class="main container" id="main">
+    <h1 th:text="#{language.main}">Choose the language:</h1>
+    <div class="language-buttons">
+        <button onclick="window.location.href='http://localhost:8080/language/?lang=en'">
+            <img th:src="@{/icons/lang-en.png}" alt="En" />
+            <span th:text="#{language.en}">En</span>
+        </button>
+        <button onclick="window.location.href='http://localhost:8080/language/?lang=ru'">
+            <img th:src="@{/icons/lang-ru.png}" alt="Ru" />
+            <span th:text="#{language.ru}">Ru</span>
+        </button>
+        <button onclick="window.location.href='http://localhost:8080/language/?lang=kk'">
+            <img th:src="@{/icons/lang-kk.png}" alt="Kk" />
+            <span th:text="#{language.kk}">Kk</span>
+        </button>
+    </div>
+</main>
+
+
+<!--=============== MAIN JS ===============-->
+<script th:src="@{js/main.js}"></script>
+</body></html>

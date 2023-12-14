@@ -5,11 +5,10 @@
 	<title th:text="#{welcome.title}">Welcome</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" th:href="@{/verify.css}">
-	<link rel="stylesheet" th:href="@{/styles.css}">
 </head>
 <body>
 <form id="langForm">
-	<h4 class="card-title">Welcome to our Management System. Please choose an option:</h4>
+	<h4 class="card-title" th:text="#{welcome.header}">Welcome! Please choose an option:</h4>
 	<a class="lang" href="?lang=en">
 		<img th:src="@{/icons/lang-en.png}" alt="En"/>
 		<span th:text="#{language.en}">English</span>
@@ -23,8 +22,8 @@
 		<span th:text="#{language.kk}">Қазақша</span>
 	</a>
 	<div>
-		<a th:href="@{/patlog}" class="submit">Patient</a>
-		<a th:href="@{/doclog}" class="submit">Doctor</a>
+		<a th:href="@{/patlog}" class="submit" th:text="#{welcome.patient}">Patient</a>
+		<a th:href="@{/doclog}" class="submit" th:text="#{welcome.doctor}">Doctor</a>
 	</div>
 </form>
 </body>

@@ -47,29 +47,35 @@ public class ControllerClass {
 
 	@GetMapping("/")
 	public String home() {
-		return "welcome";
+		return "start";
 	}
 
 	@GetMapping("/patlog")
 	public String patlog() {
-		return "patlog";
+		return "index";
 	}
 
 	@GetMapping("/doclog")
 	public String doclog() {
 		return "doclog";
 	}
-	
+
+	@GetMapping("/language")
+	public String languageTemplate(){return "language";}
+
+	@GetMapping("/about")
+	public String aboutTemplate(){return "about";}
+
 	@PostMapping("/registered")
 	public String registered(Person person) {
 		personRepo.save(person);
-		return "redirect:/patlog";
+		return "redirect:/";
 	}
 
 	@PostMapping("/registereddoc")
 	public String registereddoc(Doctor doctor) {
 		docRepo.save(doctor);
-		return "redirect:/doclog";
+		return "redirect:/";
 	}
 	
 	@GetMapping("/fail_login")
@@ -98,7 +104,7 @@ public class ControllerClass {
 	@PostMapping("/cancel")
 	public String cancel(AppointmentDelete dApp) {
 		appRepo.deleteById(dApp.getAppId());
-		return "redirect:/userdetails";
+		return "redirect:/history";
 	}
 	
 	@GetMapping("/home")
@@ -130,10 +136,10 @@ public class ControllerClass {
 //		System.out.println(app.getEmail());
 //		System.out.println(app.getDate());
 //		System.out.println(docRepo.findById(app.getDocId()).get(0).getName());
-		return "redirect:/docdetails";
+		return "redirect:/appointment";
 	}
 	
-	@GetMapping("/docdetails")
+	@GetMapping("/appointment")
 	public ModelAndView DocDetails(HttpSession session) {
 		
 	    List<Doctor> doctors = new ArrayList<Doctor>();
@@ -146,7 +152,7 @@ public class ControllerClass {
 	    return new ModelAndView("doctorlist", params);
 	}
 	
-	@GetMapping("/userdetails")
+	@GetMapping("/history")
 	public ModelAndView UserDetails(HttpSession session) {
 		List<Appointment> apps = appRepo.findAllByEmail(session.getAttribute("person").toString());
 		Map<String,Object> params = new HashMap<>();
