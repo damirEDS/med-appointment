@@ -2,35 +2,31 @@
 <!DOCTYPE html>
 <html  xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Patient Login</title>
+	<title th:text="#{auth.title}">Login</title>
 	<link rel="stylesheet" th:href="@{/verify.css}">
 </head>
 
 <body class="my-login-page">
 	<form th:action="@{/authenticate}" method="POST" id="loginForm" novalidate="">
-		<h1>Patient Login</h1>
+		<h1 th:text="#{auth.patient.header}">Patient Login</h1>
 		<div class="form-group">
-			<label for="email">E-Mail Address</label>
+			<label for="email" th:text="#{auth.email.label}">E-Mail</label>
 			<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
 		</div>
 
 		<div class="form-group">
-			<label for="password">Password
-			</label>
+			<label for="password" th:text="#{auth.password.label}">Password</label>
 			<input id="password" type="password" class="form-control" name="password" required data-eye>
-
 		</div>
-
-
-
 		<div class="form-group m-0">
-			<button type="submit" class="submit">
+			<button type="submit" class="submit" th:text="#{auth.link}">
 				Login
 			</button>
 		</div>
-		<div class="mt-4 text-center">
-			Don't have an account? <a th:href="@{/register}">Create One</a>
+		<div class="mt-4 text-center" th:text="#{auth.question}">
+			Don't have an account?
 		</div>
+		<a th:href="@{/register}" th:text="#{auth.register.submit}">Register</a>
 	</form>
 </body>
 </html>
