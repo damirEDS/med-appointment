@@ -19,7 +19,6 @@ public class Doctor {
 	private String degree;
 	private String state;
 	private String city;
-	
 	private String password;
 	
 
