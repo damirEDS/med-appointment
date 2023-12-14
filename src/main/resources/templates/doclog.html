@@ -8,7 +8,7 @@
 
 <body class="my-login-page">
 <form th:action="@{/authenticatedoc}" method="POST" id="loginForm" novalidate="">
-	<h1 th:text="#{auth.doctor.header}">Doctor Login</h1>  th:text="#{}"
+	<h1 th:text="#{auth.doctor.header}">Doctor Login</h1>
 	<div class="form-group">
 		<label for="email" th:text="#{auth.email.label}">E-Mail Address</label>
 		<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
